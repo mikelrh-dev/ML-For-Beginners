@@ -27,6 +27,7 @@ Clasificación de datos en categorías.
 - [1-Introduction](4-Classification/1-Introduction.md)
 - [2-Classifiers-1](4-Classification/2-Classifiers-1.md)
 - [3-Classifiers-2](4-Classification/3-Classifiers-2.md)
+- [4-Applied](4-Classification/4-Applied.md)
 
 ### Conceptos ML
 Explicaciones detalladas de conceptos clave.

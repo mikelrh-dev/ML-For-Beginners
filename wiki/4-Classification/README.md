@@ -19,6 +19,7 @@ A diferencia de la regresión (que predice números), acá predicciones son etiq
 1. **1-Introduction** - Preparar datos y balancear con SMOTE
 2. **2-Classifiers-1** - Logistic Regression y métricas
 3. **3-Classifiers-2** - Comparar múltiples algoritmos
+4. **4-Applied** - App de recomendación con ONNX
 
 ## Dataset
 

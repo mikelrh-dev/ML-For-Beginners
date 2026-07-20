@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <header>
+        <title>Cocinero IA</title>
+    </header>
+    <body>
+        <h1>Revisa tu refrigerador. ¿Qué puedes crear?</h1>
+        <div id="wrapper">
+            <div class="boxCont">
+                <input type="checkbox" value="4" class="checkbox">
+                <label>Manzana</label>
+            </div>
+            <div class="boxCont">
+                <input type="checkbox" value="247" class="checkbox">
+                <label>Pera</label>
+            </div>
+            <div class="boxCont">
+                <input type="checkbox" value="77" class="checkbox">
+                <label>Cereza</label>
+            </div>
+            <div class="boxCont">
+                <input type="checkbox" value="126" class="checkbox">
+                <label>Fenogreco</label>
+            </div>
+            <div class="boxCont">
+                <input type="checkbox" value="302" class="checkbox">
+                <label>Sake</label>
+            </div>
+            <div class="boxCont">
+                <input type="checkbox" value="327" class="checkbox">
+                <label>Salsa de soja</label>
+            </div>
+            <div class="boxCont">
+                <input type="checkbox" value="112" class="checkbox">
+                <label>Comino</label>
+            </div>
+        </div>
+        <div style="padding-top:10px">
+            <button onClick="startInference()">¿Qué tipo de cocina puedes preparar?</button>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.min.js"></script> 
+        <script>
+            const ingredients = Array(380).fill(0);
+            
+            const checks = [...document.querySelectorAll('.checkbox')];
+            
+            checks.forEach(check => {
+                check.addEventListener('change', function() {
+                    ingredients[check.value] = check.checked ? 1 : 0;
+                });
+            });
+
+            function testCheckboxes() {
+                return checks.some(check => check.checked);
+            }
+
+            async function startInference() {
+                let atLeastOneChecked = testCheckboxes()
+                
+                if (!atLeastOneChecked) {
+                    alert('Por favor selecciona al menos un ingrediente.');
+                    return;
+                }
+                try {
+                    console.log('Cargando modelo...');
+                    const session = await ort.InferenceSession.create('./model.onnx');
+                    console.log('Modelo cargado. Inputs:', session.inputNames);
+                    
+                    const input = new ort.Tensor(new Float32Array(ingredients), [1, 380]);
+                    const feeds = {};
+                    feeds[session.inputNames[0]] = input;
+                    
+                    console.log('Ejecutando inferencia...');
+                    const results = await session.run(feeds);
+                    
+                    const outputName = session.outputNames[0];
+                    console.log('Resultado:', results[outputName].data);
+                    alert('¡Hoy puedes disfrutar de cocina ' + results[outputName].data[0] + '!')
+                } catch (e) {
+                    console.error('Error completo:', e);
+                    alert('Error: ' + e.message);
+                }
+            }
+        </script>
+    </body>
+</html>
