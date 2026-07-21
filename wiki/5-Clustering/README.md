@@ -1,45 +1,50 @@
 # 5. Clustering — Agrupando datos sin etiquetas
 
-## ¿Qué aprendemos aquí?
+## ¿Qué es clustering?
 
-Clustering es **aprendizaje no supervisado**: encontramos patrones en datos que no tienen etiquetas. Es como ordenar una pila de ropa sin etiquetas — agrupás por similitud.
+Clustering es **aprendizaje no supervisado**: encontramos patrones en datos que no tienen etiquetas.
 
-**Diferencia con clasificación:**
-- **Clasificación** (sección 4): tenés etiquetas, el modelo aprende a predecirlas
+**La diferencia clave con clasificación:**
+- **Clasificación** (sección 4): tenés etiquetas (gato, perro, pájaro), el modelo aprende a predecirlas
 - **Clustering** (esta sección): NO tenés etiquetas, el modelo encuentra grupos por sí solo
 
-## Ejemplos reales
+**Analogía simple:** Es como ordenar una pila de ropa sin etiquetas 🧦👕👖🩲 — no sabés quién es quién, pero agrupás por similitud (tallas, colores, tipo de prenda).
 
-| Uso | Ejemplo |
-|-----|---------|
+## ¿Para qué sirve clustering?
+
+| Uso real | Ejemplo |
+|----------|---------|
 | Segmentación de mercado | ¿Qué tipos de clientes compran qué productos? |
 | Detección de anomalías | ¿Qué transacciones son sospechosas? |
 | Análisis de imágenes | ¿Qué caras son similares? |
 | Organización de documentos | ¿Qué artículos hablan del mismo tema? |
+| Recomendaciones | "Clientes similares a vos también compraron..." |
+| Detección de fraude | ¿Qué tarjetas de crédito se comportan diferente? |
 
 ## Conceptos clave
 
-| Concepto | Definición |
-|----------|------------|
-| **Cluster** | Grupo de puntos similares entre sí |
-| **Centroid** | Punto central de un cluster (en K-Means) |
-| **Silhouette Score** | Mide qué tan bien separados están los clusters (-1 a 1) |
-| **WCSS** | Within-Cluster Sum of Squares — qué tan compactos son los clusters |
-| **Método del codo** | Técnica para elegir el número óptimo de clusters |
+| Concepto | Definición | Analogía |
+|----------|------------|----------|
+| **Cluster** | Grupo de puntos similares entre sí | Una mesa en un restaurante |
+| **Centroid** | Punto central de un cluster (en K-Means) | El centro de masa de un grupo |
+| **Silhouette Score** | Mide qué tan bien separados están los clusters (-1 a 1) | Qué tan claros están los colores en un batido |
+| **WCSS** | Within-Cluster Sum of Squares — qué tan compactos son los clusters | Qué apretada está la gente en una mesa |
+| **Método del codo** | Técnica para elegir el número óptimo de clusters | ¿Cuántas mesas necesito en el restaurante? |
+| **Outliers** | Valores atípicos que distorsionan los resultados | La persona de 80 años en un grupo de 20 |
 
 ## Algoritmos principales
 
-| Algoritmo | Cuándo usarlo |
-|-----------|---------------|
-| **K-Means** | Propósito general, clusters esféricos |
-| **DBSCAN** | Clusters de forma irregular, ruido |
-| **Gaussian Mixture** | Clusters superpuestos, distribución normal |
-| **Hierarchical** | Cuando querés ver la jerarquía de clusters |
+| Algoritmo | Cuándo usarlo | Ventaja | Desventaja |
+|-----------|---------------|---------|------------|
+| **K-Means** | Propósito general, clusters esféricos | Rápido, simple | Hay que elegir k manualmente |
+| **DBSCAN** | Clusters de forma irregular, ruido | Detecta outliers automáticamente | Sensible a parámetros |
+| **Gaussian Mixture** | Clusters superpuestos | Probabilístico, flexible | Más complejo |
+| **Hierarchical** | Cuando querés ver la jerarquía | Visual (dendrograma) | Lento con muchos datos |
 
-## Lecciones
+## Lecciones de esta sección
 
-1. [Visualización de datos](1-Visualize/README.md) — Explorar el dataset de música nigeriana
-2. [K-Means](2-K-Means/README.md) — Aplicar el algoritmo más común de clustering
+1. **[Visualización de datos](1-Visualize.md)** — Explorar el dataset de música nigeriana antes de clustering
+2. **[K-Means](2-K-Means.md)** — Aplicar el algoritmo más común y evaluar resultados
 
 ## Dato curioso
 
