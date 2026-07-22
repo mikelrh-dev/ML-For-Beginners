@@ -106,7 +106,8 @@ Modelo de Google (2018) que crea embeddings **contextuales** — un vector difer
 | Herramienta | Para qué sirve |
 |-------------|----------------|
 | **NLTK** | Tokenización, stemming, sentimiento, stop words |
-| **TextBlob** | API simple para NLP (wrapper sobre NLTK) |
+| **TextBlob** | API simple para NLP (wrapper sobre NLTK) — sentimiento, POS tagging |
+| **deep-translator** | Traducción automática (usa Google Translate) |
 | **spaCy** | NLP rápido y eficiente para producción |
 | **Gensim** | Word embeddings, topic modeling |
 | **scikit-learn** | TF-IDF, vectorización de texto |
