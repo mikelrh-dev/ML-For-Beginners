@@ -29,20 +29,25 @@ En irlandés, las emociones **están sobre vos**, no las "sentís". Un traductor
 | **Reglas** | Identificar palabras → traducir una por una | Ignora gramática |
 | **ML** | Entrenar con millones de traducciones humanas | Necesita datos masivos |
 
-TextBlob usa **Google Translate** (ML) detrás de escena.
+Google Translate usa **ML** entrenado con millones de traducciones humanas.
 
 ### Ejemplo práctico
 
 ```python
-from textblob import TextBlob
+from deep_translator import GoogleTranslator
 
-blob = TextBlob("It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife!")
+traductor = GoogleTranslator(source='en', target='fr')
 
-print(blob.translate(to="fr"))
+original = "It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife!"
+traduccion = traductor.translate(original)
+
+print(traduccion)
 # C'est une vérité universellement reconnue, qu'un homme célibataire...
 ```
 
-**Dato curioso**: La traducción de TextBlob es más precisa que la traducción humana de 1932, que agregaba palabras innecesarias.
+**¿Por qué `deep-translator` y no `TextBlob`?** TextBlob eliminó su función `translate()` en versiones recientes (0.20.x) porque Google bloqueó el acceso no oficial. `deep-translator` usa la API de Google de forma legal.
+
+**Dato curioso**: La traducción automática es más precisa que la traducción humana de 1932, que agregaba palabras innecesarias.
 
 ---
 
@@ -159,7 +164,8 @@ Estadísticas: ¿más positivas o negativas?
 | Error | Causa | Solución |
 |-------|-------|----------|
 | Sentimiento incorrecto | TextBlob no entiende sarcasmo | Usar VADER o modelos contextuales |
-| `blob.translate()` falla | Necesita internet | Verificar conexión |
+| `ModuleNotFoundError: No module named 'deep_translator'` | No instalado | `pip install deep-translator` |
+| `blob.translate()` no existe | TextBlob 0.20+ quitó translate() | Usar `deep-translator` en su lugar |
 | Polaridad = 0 en todo | Texto sin palabras del diccionario | Es limitación del enfoque |
 
 ---
