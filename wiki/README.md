@@ -35,6 +35,14 @@ Agrupando datos sin etiquetas.
 - [Overview](5-Clustering/README.md)
 - [1-Visualize](5-Clustering/1-Visualize.md)
 - [2-K-Means](5-Clustering/2-K-Means.md)
+- [Glossary](5-Clustering/glossary.md)
+
+### 6-NLP
+Procesamiento de lenguaje natural.
+
+- [Overview](6-NLP/README.md)
+- [Word Embeddings](6-NLP/word-embeddings.md)
+- [Glossary](6-NLP/glossary.md)
 
 ### Conceptos ML
 Explicaciones detalladas de conceptos clave.
