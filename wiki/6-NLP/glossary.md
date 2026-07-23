@@ -141,6 +141,59 @@ TF-IDF = TF × log(N / DF)
 polaridad = (positivas - negativas) / total_palabras
 ```
 
+### deep-translator
+Librería Python para traducción automática. Reemplaza a `TextBlob.translate()` que fue eliminada en v0.20+. Usa Google Translate, Microsoft Translator, etc.
+
+```python
+from deep_translator import GoogleTranslator
+GoogleTranslator(source='en', target='es').translate("Hello")
+```
+
+### Compound Score (VADER)
+Score único de -1 a +1 que resume el sentimiento.
+- **< -0.05** = negativo
+- **-0.05 a 0.05** = neutral
+- **> 0.05** = positivo
+
+### Feature Engineering
+Crear nuevas variables (features) a partir de datos crudos para mejorar el modelo.
+
+Ejemplos:
+- Dirección completa → "Ciudad, País"
+- Tags de texto → columnas binarias 0/1
+- Texto → score de sentimiento numérico
+
+### One-Hot Encoding
+Convertir categorías en columnas binarias (0 o 1).
+
+```
+Tags: "Leisure trip, Couple"
+→ Leisure_trip: 1, Couple: 1, Solo_traveler: 0, Business_trip: 0, ...
+```
+
+### groupby().transform()
+Calcular una métrica por grupo y asignarla a cada fila del grupo.
+
+```python
+# Cuántas reseñas tiene cada hotel → asignar a cada fila de ese hotel
+df['Total_Reviews'] = df.groupby('Hotel_Name')['Hotel_Name'].transform('count')
+```
+
+### Correlation with Target
+Medir cuánto una feature se relaciona con la variable objetivo.
+```python
+df['Positive_Sentiment'].corr(df['Reviewer_Score'])  # ~ +0.4
+df['Negative_Sentiment'].corr(df['Reviewer_Score'])  # ~ -0.5
+```
+
+### Checkpoint
+Guardar estado intermedio de un procesamiento largo para no repetirlo si falla algo después.
+
+### Skew (Sesgo de distribución)
+Distribución no simétrica.
+- **Right skew (positivo)**: cola a la derecha, media > mediana
+- **Left skew (negativo)**: cola a la izquierda, media < mediana
+
 ---
 
 **Volver al [índice de NLP](README.md)**

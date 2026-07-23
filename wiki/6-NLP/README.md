@@ -29,11 +29,11 @@ NLP le enseña a las computadoras a **entender este desorden**.
 
 ## Lecciones
 
-1. **[Introducción a NLP](1-Introduction-to-NLP/README.md)** — Historia, Turing, Eliza, bot básico
-2. **[Tareas de NLP](2-Tasks/README.md)** — Tokenización, embeddings, parsing
-3. **[Traducción y Sentimiento](3-Translation-Sentiment/README.md)** — Traducción automática, análisis de sentimiento
-4. **[Hotel Reviews 1](4-Hotel-Reviews-1/README.md)** — Exploración del dataset
-5. **[Hotel Reviews 2](5-Hotel-Reviews-2/README.md)** — NLTK y sentimiento avanzado
+1. **[Introducción a NLP](lesson-1-introduction.md)** — Historia, Turing, Eliza, bot básico
+2. **[Tareas de NLP](lesson-2-tasks.md)** — Tokenización, embeddings, parsing
+3. **[Traducción y Sentimiento](lesson-3-translation-sentiment.md)** — Traducción automática, análisis de sentimiento
+4. **[Hotel Reviews 1 — EDA](lesson-4-hotel-reviews-1.md)** — Exploración del dataset (515K reseñas)
+5. **[Hotel Reviews 2 — Sentimiento](lesson-5-hotel-reviews-2.md)** — Limpieza, tags, VADER, pipeline completo
 
 ## Glosario
 
