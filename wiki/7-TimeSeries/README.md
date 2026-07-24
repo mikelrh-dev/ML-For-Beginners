@@ -38,6 +38,7 @@ Datos **ordenados en el tiempo**. Ejemplos:
 2. **[ARIMA](lesson-2-arima.md)** — Modelo clásico para series estacionarias
    - [Apoyo Lección 2](apoyo-arima.md) — Puntos clave para entender
 3. **[SVR — Support Vector Regressor](lesson-3-svr.md)** — Regresión no-lineal para series temporales
+   - [Apoyo Lección 3](apoyo-svr.md) — Puntos clave para entender
 
 ## Glosario
 

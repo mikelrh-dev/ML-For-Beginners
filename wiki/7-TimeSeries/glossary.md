@@ -192,6 +192,30 @@ Entradas (4):    Y_(t-4), Y_(t-3), Y_(t-2), Y_(t-1)
 Target (1):      Y_t
 ```
 
+- **Timesteps muy bajos (2-3):** Modelo simple, no captura patrones complejos
+- **Timesteps muy altos (>10):** Sobreajuste, modelo más lento
+
+### Gamma
+Controla la **influencia de cada punto** de entrenamiento.
+
+- **Gamma bajo:** Cada punto afecta una zona grande → modelo suave
+- **Gamma alto:** Cada punto afecta una zona pequeña → modelo flexible pero propenso a sobreajuste
+
+### C (Regularización)
+Penalización por error. Controla el balance entre **simplicidad** y **ajuste a los datos**.
+
+- **C bajo:** Modelo más simple, tolera más errores
+- **C alto:** Modelo más estricto, se ajusta más a los datos
+
+### Epsilon (ε)
+Define el **margen de tolerancia** alrededor de la predicción.
+
+- **Epsilon alto:** Modelo más suave, más puntos ignorados
+- **Epsilon bajo:** Modelo más preciso, menos puntos ignorados
+
+### Support Vectors
+Puntos de entrenamiento que están **más cerca** del límite de decisión. Son los que definen la forma del modelo.
+
 ---
 
 ## Validación
