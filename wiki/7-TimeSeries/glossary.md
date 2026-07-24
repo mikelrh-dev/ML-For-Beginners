@@ -134,6 +134,37 @@ ARIMA + **componente estacional**.
 
 `(P, D, Q, m)` describe el componente estacional, donde `m` es el período (24 para diario, 12 para anual).
 
+### SARIMAX
+SARIMA + **features exógenas** (X). Permite usar variables externas (ej. temperatura) para mejorar la predicción.
+
+```python
+from statsmodels.tsa.statespace.sarimax import SARIMAX
+model = SARIMAX(endog=train, order=(4,1,0), seasonal_order=(1,1,0,24))
+```
+
+### MinMaxScaler
+Escala los datos al rango **[0, 1]**. ARIMA funciona mejor con datos acotados.
+
+```python
+from sklearn.preprocessing import MinMaxScaler
+scaler = MinMaxScaler()
+train['load'] = scaler.fit_transform(train)  # fit + transform
+test['load'] = scaler.transform(test)        # solo transform
+```
+
+**Regla de oro:** `fit_transform()` en train, `transform()` en test.
+
+### Ventana de entrenamiento (Training Window)
+Cantidad de datos pasados que usa el modelo para entrenar. En nuestro caso: **720 horas (30 días)**.
+
+```python
+training_window = 720  # 30 días
+history = history[(-training_window):]  # últimos 720 valores
+```
+
+- Ventana muy chica → modelo no aprende patrones
+- Ventana muy grande → walk-forward es muy lento
+
 ---
 
 ## SVR (Support Vector Regressor)
